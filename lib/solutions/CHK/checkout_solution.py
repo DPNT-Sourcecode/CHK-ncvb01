@@ -65,28 +65,31 @@ def checkout(skus):
         d["V"] %= 2
     price += d["V"] * 50
 
+    group_counts = []
 
-    price += d["C"] * 20
-    price += d["D"] * 15
-    price += d["E"] * 40
-    price += paid_F * 10
-    price += d["G"] * 20
-    price += d["I"] * 35
-    price += d["J"] * 60
-    price += d["L"] * 90
-    price += d["M"] * 15
-    price += d["N"] * 40
-    price += d["O"] * 10
-    price += d["R"] * 50
-    price += d["S"] * 30
-    price += d["T"] * 20
-    price += d["U"] * 40
-    price += d["W"] * 20
-    price += d["X"] * 90
-    price += d["Y"] * 10
-    price += d["Z"] * 50
+    for item in group_items:
+        group_counts += [item] * d[item]
+        d[item] = 0
+
+    group_counts.sort(key=lambda x: -prices[x])
+    while len(group_counts) >= 3:
+        price += 45
+        for _ in range(3):
+            group_counts.pop(0)
+    
+    for item in group_counts:
+        price += prices[item]
+
+    for k in d:
+        if k == "F":
+            continue
+        elif k == "V":
+            continue
+        else:
+            price += d[k] * prices[k]
     
     return price
+
 
 
 
