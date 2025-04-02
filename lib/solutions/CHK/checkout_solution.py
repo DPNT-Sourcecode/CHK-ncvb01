@@ -8,8 +8,11 @@ def checkout(skus):
          "W": 0, "X": 0, "Y": 0, "Z": 0}
     
     prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
-              "J": 60, "K": 70, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50,
+              "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50,
               "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
+    
+    group_items = ["S", "T", "X", "Y", "Z"]
+
 
     for i in range(len(skus)):
         a = skus[i]
@@ -23,7 +26,6 @@ def checkout(skus):
     d["M"] = max(0, d["M"] - d["N"] // 3)
     d["Q"] = max(0, d["Q"] - d["R"] // 3)
     d["U"] -= (d["U"] // 4)
-
     paid_F = d["F"] - (d["F"] // 3)
 
     price = 0
@@ -85,5 +87,6 @@ def checkout(skus):
     price += d["Z"] * 50
     
     return price
+
 
 
