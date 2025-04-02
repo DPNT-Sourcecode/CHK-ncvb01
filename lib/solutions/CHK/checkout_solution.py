@@ -12,11 +12,21 @@ def checkout(skus):
         else:
             d[a] += 1
     
-    price = 0
+    
     d["B"] = max(0, d["B"] - d["E"] // 2)
+
+    price = 0
+
+    price += (d["A"] // 5) * 200
+    d["A"] %= 5
+    price += ((d["A"] // 3) * 130)
+    d["A"] %= 3
+    price += d["A"] * 50
+
+    price += ((d["B"] // 2) * 45) + ((d["B"] % 2) * 30)
     price += d["C"] * 20
     price += d["D"] * 15
-    price += ((d["A"] // 3) * 130) + ((d["A"] % 3) * 50)
-    price += ((d["B"] // 2) * 45) + ((d["B"] % 2) * 30)
     price += d["E"] * 40
+    
     return price
+
