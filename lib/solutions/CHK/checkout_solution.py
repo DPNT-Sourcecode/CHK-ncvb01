@@ -45,7 +45,7 @@ def checkout(skus):
 
     price += (d["K"] // 2) * 150
     d["K"] %= 2
-    price += d["K"] * 70
+    price += d["K"] * 80
 
     price += (d["P"] // 5) * 200
     d["P"] %= 5
@@ -76,7 +76,7 @@ def checkout(skus):
     price += d["N"] * 40
     price += d["O"] * 10
     price += d["R"] * 50
-    price += d["S"] * 20
+    price += d["S"] * 30
     price += d["T"] * 20
     price += d["U"] * 40
     price += d["W"] * 20
@@ -85,4 +85,5 @@ def checkout(skus):
     price += d["Z"] * 50
     
     return price
+
 
