@@ -35,27 +35,36 @@ def checkout(skus):
     price += ((d["A"] // 3) * 130)
     d["A"] %= 3
     price += d["A"] * 50
+    d["A"] = 0
 
 
     price += ((d["B"] // 2) * 45) + ((d["B"] % 2) * 30)
+    d["B"] = 0
 
     price += (d["H"] // 10) * 80
     d["H"] %= 10
     price += ((d["H"] // 5) * 45)
     d["H"] %= 5
     price += d["H"] * 10
+    d["H"] = 0
 
     price += (d["K"] // 2) * 150
     d["K"] %= 2
     price += d["K"] * 80
+    d["K"] = 0
+
 
     price += (d["P"] // 5) * 200
     d["P"] %= 5
     price += d["P"] * 50
+    d["P"] = 0
+
 
     price += (d["Q"] // 3) * 80
     d["Q"] %= 3
     price += d["Q"] * 30
+    d["Q"] = 0
+
 
     if d["V"] >= 3:
         price += (d["V"] // 3) * 130
@@ -82,13 +91,14 @@ def checkout(skus):
 
     for k in d:
         if k == "F":
-            continue
+            price += paid_F * 10
         elif k == "V":
             continue
         else:
             price += d[k] * prices[k]
     
     return price
+
 
 
 
