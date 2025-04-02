@@ -28,7 +28,9 @@ def checkout(skus):
     price += d["C"] * 20
     price += d["D"] * 15
     price += d["E"] * 40
+    price += paid_F * 10
     
     return price
+
 
 
