@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    d = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0}
+    d = {"A": 0, "B": 0, "C": 0, "D": 0, "E": 0, "F": 0}
 
     for i in range(len(skus)):
         a = skus[i]
@@ -14,6 +14,7 @@ def checkout(skus):
     
     
     d["B"] = max(0, d["B"] - d["E"] // 2)
+    paid_F = d["F"] - (d["F"] // 3)
 
     price = 0
 
@@ -29,4 +30,5 @@ def checkout(skus):
     price += d["E"] * 40
     
     return price
+
 
