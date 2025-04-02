@@ -20,6 +20,10 @@ def checkout(skus):
     
     
     d["B"] = max(0, d["B"] - d["E"] // 2)
+    d["M"] = max(0, d["M"] - d["N"] // 3)
+    d["Q"] = max(0, d["Q"] - d["R"] // 3)
+    d["U"] -= (d["U"] // 4)
+
     paid_F = d["F"] - (d["F"] // 3)
 
     price = 0
@@ -30,14 +34,29 @@ def checkout(skus):
     d["A"] %= 3
     price += d["A"] * 50
 
+
     price += ((d["B"] // 2) * 45) + ((d["B"] % 2) * 30)
+
+    price += (d["H"] // 10) * 80
+    d["H"] %= 10
+    price += ((d["H"] // 5) * 45)
+    d["H"] %= 5
+    price += d["H"] * 10
+
+    price += (d["K"] // 2) * 150
+    d["K"] %= 2
+    price += d["K"] * 70
+
+    price += (d["P"] // 5) * 200
+    d["P"] %= 5
+    price += d["P"] * 50
+
+    
+
+
     price += d["C"] * 20
     price += d["D"] * 15
     price += d["E"] * 40
     price += paid_F * 10
     
     return price
-
-
-
-
