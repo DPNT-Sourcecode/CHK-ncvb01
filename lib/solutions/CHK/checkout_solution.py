@@ -51,12 +51,38 @@ def checkout(skus):
     d["P"] %= 5
     price += d["P"] * 50
 
-    
+    price += (d["Q"] // 3) * 80
+    d["Q"] %= 3
+    price += d["Q"] * 30
+
+    if d["V"] >= 3:
+        price += (d["V"] // 3) * 130
+        d["V"] %= 3
+    if d["V"] >= 2:
+        price += (d["V"] // 2) * 90
+        d["V"] %= 2
+    price += d["V"] * 50
 
 
     price += d["C"] * 20
     price += d["D"] * 15
     price += d["E"] * 40
     price += paid_F * 10
+    price += d["G"] * 20
+    price += d["I"] * 35
+    price += d["J"] * 60
+    price += d["L"] * 90
+    price += d["M"] * 15
+    price += d["N"] * 40
+    price += d["O"] * 10
+    price += d["R"] * 50
+    price += d["S"] * 20
+    price += d["T"] * 20
+    price += d["U"] * 40
+    price += d["W"] * 20
+    price += d["X"] * 90
+    price += d["Y"] * 10
+    price += d["Z"] * 50
     
     return price
+
